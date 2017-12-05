@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <artifactId>my_first_market</artifactId>
-    <groupId>cake_market</groupId>
+    <artifactId>cake-manager</artifactId>
+    <groupId>cake-market</groupId>
     <version>1.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
 
-    <name>cake_market</name>
+    <name>cake-manager</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -19,18 +19,12 @@
     </parent>
 
     <properties>
-        <start-class>cake_manager.SpringBootApplication</start-class>
+        <start-class>cakemanager.SpringBootApplication</start-class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
 
-    <user_manager.repositories>
-        <repository>
-            <id>codelds</id>
-            <url>https://code.lds.org/nexus/content/groups/main-repo</url>
-        </repository>
-    </user_manager.repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -59,22 +53,16 @@
         </dependency>
 
         <!-- для связи с другими микросервисами раскоментить + добавить зависимотсь на другой модуль -->
-         <dependency>
-             <groupId>org.springframework.cloud</groupId>
-             <artifactId>spring-cloud-starter-hystrix</artifactId>
-         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+        </dependency>
 
         <!--    <dependency>
               <groupId>org.springframework.cloud</groupId>
               <artifactId>spring-cloud-starter-feign</artifactId>
           </dependency>-->
 
-
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.3</version>
-        </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
