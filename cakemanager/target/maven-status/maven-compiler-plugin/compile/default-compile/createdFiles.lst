@@ -1,8 +1,0 @@
-cake_manager\services\CakeService.class
-cake_manager\domain\Cake.class
-cake_manager\repositories\CakeRepository.class
-cake_manager\SpringBootApplication.class
-cake_manager\services\CakeServiceImpl.class
-cake_manager\config\SpringSecConfig.class
-cake_manager\config\SwaggerConfig.class
-cake_manager\controllers\CakeController.class
