@@ -7,6 +7,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/cakemanager/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cakemanager/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/cakemanager/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/cakemanager/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

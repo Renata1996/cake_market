@@ -11,8 +11,8 @@
     <url>http://maven.apache.org</url>
 
     <modules>
-        <module>client_manager</module>
-        <module>eureka</module>
+       <!--<module>cakemanager</module>-->
+       <!-- <module>eureka</module>-->
         <module>zuul</module>
     </modules>
 

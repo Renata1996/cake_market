@@ -1,0 +1,20 @@
+CREATE TABLE CAKE
+(
+  ID NUMBER NOT NULL
+, TITLE VARCHAR2(100) NOT NULL
+, DESCRIPTION VARCHAR2(500)
+, PRICE INT DEFAULT 0
+, IMAGE_URL VARCHAR2(20)
+, CONSTRAINT CAKE_PK PRIMARY KEY
+  (
+    ID
+  )
+  ENABLE
+);
+
+INSERT INTO cake (ID,DESCRIPTION,TITLE, PRICE, IMAGE_URL)
+    VALUES (1,'Chocolate cake with banana cream', 'Chocolate cake',1100,'http://');
+INSERT INTO cake (ID,DESCRIPTION,TITLE, PRICE, IMAGE_URL)
+    VALUES (2,'Banana cake with banana cream', 'Chocolate cake',1200,'http://');
+INSERT INTO cake (ID,DESCRIPTION,TITLE, PRICE, IMAGE_URL)
+    VALUES (3,'Cake with vanila cream', 'Cake',1100,'http://');

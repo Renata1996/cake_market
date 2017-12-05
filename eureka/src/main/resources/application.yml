@@ -1,13 +1,17 @@
 server:
-  port: 8761
+  port: 8071
 
 spring:
   application:
     name: eureka
 
 eureka:
-  server:
-    renewal-threshold-update-interval-ms: 1000
   instance:
-    lease-expiration-duration-in-seconds: 2
-    lease-renewal-interval-in-seconds: 1
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+      waitTimeInMsWhenSyncEmpty: 0
