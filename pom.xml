@@ -12,10 +12,11 @@
     <url>http://maven.apache.org</url>
 
     <modules>
-      <module>cakemanager</module>
-       <module>eureka</module>
+        <module>cakemanager</module>
+        <module>eureka</module>
         <module>zuul</module>
         <module>usermanager</module>
+        <module>auth</module>
     </modules>
 
     <build>

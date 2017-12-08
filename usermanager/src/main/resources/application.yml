@@ -1,18 +1,21 @@
 server:
   port: 9097
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 1
-    leaseExpirationDurationInSeconds: 2
-  client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/
-    healthcheck:
-      enabled: true
-    lease:
-      duration: 5
-
-
+  contextPath: /uaa
 spring:
   application:
     name: user-service
+eureka:
+  instance:
+    prefer-ip-address: true
+    non-secure-port: 9097
+  client:
+    egisterWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+security:
+  user:
+  password: password
+  enable-csrf: false
+logging.level.org.springframework.security: DEBUG
+security.ignored: /resources/**
