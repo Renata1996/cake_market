@@ -7,9 +7,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class SpringSecConfig extends WebSecurityConfigurerAdapter {
 
+
+    private static final String DEFAULT_PATH = "/";
+    private static final String SWAGGER_RESOURSES = "/swagger-resources";
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests().antMatchers("/", "/swagger-resources").permitAll();
+        httpSecurity.authorizeRequests().antMatchers(DEFAULT_PATH, SWAGGER_RESOURSES).permitAll();
         httpSecurity.csrf().disable();
         httpSecurity.headers().frameOptions().disable();
     }

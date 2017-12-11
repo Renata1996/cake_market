@@ -1,8 +1,6 @@
 server:
   port: 8881
-spring:
-  application:
-    name: zuul
+
 security:
   user:
     name: root

@@ -14,8 +14,15 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/
 security:
-  user:
-  password: password
-  enable-csrf: false
-logging.level.org.springframework.security: DEBUG
+  #user:
+  #name: root
+  #password: password
+ oauth2:
+     resource:
+ #      loadBalanced: true
+       userInfoUri: http://localhost:9999/user
 security.ignored: /resources/**
+
+logging:
+  level:
+    org.springframework.security: TRACE

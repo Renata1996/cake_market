@@ -17,6 +17,7 @@
         <module>zuul</module>
         <module>usermanager</module>
         <module>auth</module>
+        <module>config</module>
     </modules>
 
     <build>

@@ -12,7 +12,6 @@ import java.util.List;
 @Component
 public class CakeServiceImpl implements CakeService {
 
-
     private CakeRepository cakeRepository;
 
     @Autowired

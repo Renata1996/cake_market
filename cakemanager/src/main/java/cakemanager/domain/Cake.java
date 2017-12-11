@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Cake {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String description;
     private int price;

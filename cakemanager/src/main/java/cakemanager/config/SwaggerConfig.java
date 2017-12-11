@@ -12,12 +12,16 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
+    private static final String CAKE_PATH = "/cake.*";
+    private static final String CAKE_CONTROLLER = "cakemanager.controllers";
+
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("cakemanager.controllers"))
-                .paths(regex("/cake.*"))
+                .apis(RequestHandlerSelectors.basePackage(CAKE_CONTROLLER))
+                .paths(regex(CAKE_PATH))
                 .build();
     }
 }
