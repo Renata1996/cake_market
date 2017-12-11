@@ -7,10 +7,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @org.springframework.boot.autoconfigure.SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-public class SpringBootApplication {
+public class CakeManagerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApplication.class, args);
+        SpringApplication.run(CakeManagerApplication.class, args);
 
     }
 }

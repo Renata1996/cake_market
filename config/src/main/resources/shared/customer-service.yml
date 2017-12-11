@@ -12,7 +12,3 @@ eureka:
     lease:
       duration: 5
 
-
-spring:
-  application:
-    name: customer-service

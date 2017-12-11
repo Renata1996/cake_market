@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 @EnableAuthorizationServer
 @EnableResourceServer
 @RestController
-public class UserManagerStart extends SpringBootServletInitializer {
+public class UserManagerApplication extends SpringBootServletInitializer {
 
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
     private static final String USER_NAME = "Renata";
@@ -35,7 +35,7 @@ public class UserManagerStart extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(UserManagerStart.class, args);
+        SpringApplication.run(UserManagerApplication.class, args);
 
     }
 }
