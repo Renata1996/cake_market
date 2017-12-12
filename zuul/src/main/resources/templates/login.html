@@ -4,27 +4,31 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+
+    <link href="../static/dist/css/bootstrap.css" th:href="@{/dist/css/bootstrap.css}" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="../static/cover.css" th:href="@{/cover.css}" rel="stylesheet" />
 
 </head>
 
 <body>
 
-<div class="container">
-
-    <form class="form-signin" role="form"  th:action="@{/login}" method="post">
-        <p th:if="${loginError}" class="error">Wrong user or password</p>
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" id="username" name="username"  class="form-control" placeholder="User name" required="" autofocus=""/>
-        <input id="password" name="password" type="password" class="form-control" placeholder="Password" required=""/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-    <p><a href="/index" th:href="@{/}">Back to home page</a></p>
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+            <form class="form-signin" role="form" th:action="@{/login}" method="post">
+                <p th:if="${loginError}" class="error">Wrong user or password</p>
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <input type="text" id="username" name="username" class="form-control" placeholder="User name"
+                       required="" autofocus=""/>
+                <input id="password" name="password" type="password" class="form-control" placeholder="Password"
+                       required=""/>
+                <button class="btn btn-lg btn-default btn-block" type="submit">Sign in</button>
+            </form>
+            <p><a href="/index" th:href="@{/}">Back to home page</a></p>
+            <p><a href="/uaa/registration" th:href="@{/uaa/uaa/registration}">Registration</a></p>
+        </div>
+    </div>
 </div>
 
 </body>

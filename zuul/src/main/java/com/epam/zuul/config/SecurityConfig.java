@@ -17,7 +17,8 @@ import javax.sql.DataSource;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String LOGIN_PATH = "/login";
-    private static final String REGISTRATION_PATH = "/registration";
+    private static final String REGISTRATION_PATH = "/uaa/uaa/registration";
+    private static final String DEFAULT_PATH = "/";
 
     @Autowired
     private DataSource dataSource;
@@ -25,9 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-
                 .authorizeRequests()
                 .antMatchers(REGISTRATION_PATH).permitAll()
+                .antMatchers(DEFAULT_PATH).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

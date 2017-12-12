@@ -17,9 +17,6 @@ import javax.sql.DataSource;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-@EnableAuthorizationServer
-@EnableResourceServer
-@RestController
 public class UserManagerApplication extends SpringBootServletInitializer {
 
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";

@@ -10,10 +10,11 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/cake")
 @Api(value = "onlinestore", description = "Operations pertaining to products in Online Store")
 public class CakeController {
@@ -33,9 +34,9 @@ public class CakeController {
     }
     )
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json")
-    public Iterable<Cake> list(Model model) {
-        Iterable<Cake> cakeList = cakeService.getAllCakes();
-        return cakeList;
+    public String list(Model model) {
+      model.addAttribute("cakes",cakeService.getAllCakes());
+        return "cake";
     }
 
     @ApiOperation(value = "Search a cake with an ID", response = Cake.class)

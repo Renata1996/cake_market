@@ -1,25 +1,17 @@
 server:
   port: 9097
-  contextPath: /uaa
 
 eureka:
   instance:
-    prefer-ip-address: true
-    non-secure-port: 9097
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
   client:
-    egisterWithEureka: true
-    fetchRegistry: true
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/
-security:
-  #user:
-  #name: root
-  #password: password
- oauth2:
-     resource:
- #      loadBalanced: true
-       userInfoUri: http://localhost:9999/user
-security.ignored: /resources/**
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
 
 logging:
   level:

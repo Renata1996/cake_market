@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Authorities {
 
     @Id
-    private String userName;
+    private String username;
     private String authority;
 
 }

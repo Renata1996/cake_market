@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(User user) {
         Authorities role = new Authorities();
-        role.setUserName(user.getUsername());
+        role.setUsername(user.getUsername());
         role.setAuthority(ROLE_USER);
         roleRepository.save(role);
         userRepository.save(user);
