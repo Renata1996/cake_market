@@ -5,6 +5,7 @@ import cakemanager.domain.Cake;
 import cakemanager.repositories.CakeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,6 @@ public class CakeServiceImpl implements CakeService {
 
     @Override
     public List<Cake> getAllCakes() {
-
-
         List<Cake> cakeList = new ArrayList<Cake>();
         cakeRepository.findAll().forEach(cakeList::add);
         return cakeList;

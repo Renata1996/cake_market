@@ -125,9 +125,6 @@ body {
 }
 
 
-/*
- * Affix and center
- */
 
 @media (min-width: 40em) {
   /* Pull out the header and footer */

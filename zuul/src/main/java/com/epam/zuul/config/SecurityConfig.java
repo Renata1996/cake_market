@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String LOGIN_PATH = "/login";
     private static final String REGISTRATION_PATH = "/uaa/uaa/registration";
-    private static final String DEFAULT_PATH = "/";
+    private static final String DEFAULT_PATH = "/index";
 
     @Autowired
     private DataSource dataSource;
