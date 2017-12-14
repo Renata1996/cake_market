@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cake")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8881")
 @Api(value = "onlinestore", description = "Operations pertaining to products in Online Store")
 public class CakeController {
 

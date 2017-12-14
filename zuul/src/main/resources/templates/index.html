@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <title>cakes</title>
-    <link href="../static/style.css" th:href="@{/style.css}" rel="stylesheet"/>
-    <link href="../static/dist/css/bootstrap.css" th:href="@{/dist/css/bootstrap.css}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../static/style.css" th:href="@{/style.css}" />
+    <link  rel="stylesheet" type="text/css" href="../static/dist/css/bootstrap.css" th:href="@{/dist/css/bootstrap.css}"/>
     <!-- Custom styles for this template -->
-    <link href="../static/cover.css" th:href="@{/cover.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/cover.css"  type="text/css" th:href="@{/cover.css}" />
 </head>
 <body>
 
@@ -20,11 +20,12 @@
                     <nav class="nav nav-masthead">
                         <a class="nav-link " href="/" th:href="@{/}">About</a>
                         <a class="nav-link active " href="/index" th:href="@{/index}">Cakes</a>
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="/me" th:href="@{/me}">Me</a>
                         <a class="nav-link" href="#">
-                            <div>
+                            <div th:if="${#httpServletRequest.remoteUser}">
                                 <form action="#" th:action="@{/logout}" method="post">
-                                    <input type="submit" class="btn tn-default" value="Logout"/>
+                                    <span th:text="${#httpServletRequest.remoteUser}"/>
+                                    <input type="submit" value="Logout"/>
                                 </form>
                             </div>
                         </a>
@@ -34,13 +35,10 @@
 
             <div class="inner cover">
                 <h1 class="cover-heading">Cake market.</h1>
-
                 <table class="table_heroes">
-                    <tbody id="heroes-list">
-
+                    <tbody id="cakes-list">
                     </tbody>
                 </table>
-
             </div>
 
             <div class="mastfoot">

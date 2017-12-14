@@ -19,7 +19,7 @@ function call(param){
 }
 
 function writeTable(data) {
-	var $container = $('#heroes-list');
+	var $container = $('#cakes-list');
 	$container.empty();
 	var stringTable;
 

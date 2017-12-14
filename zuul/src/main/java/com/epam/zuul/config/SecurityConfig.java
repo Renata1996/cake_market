@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String LOGIN_PATH = "/login";
-    private static final String REGISTRATION_PATH = "/uaa/uaa/registration";
+    private static final String REGISTRATION_PATH = "/registration";
     private static final String DEFAULT_PATH = "/index";
 
     @Autowired
@@ -27,20 +27,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(REGISTRATION_PATH).permitAll()
-                .antMatchers(DEFAULT_PATH).permitAll()
+                .antMatchers( REGISTRATION_PATH,DEFAULT_PATH)
+                .permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage(LOGIN_PATH)
+                .permitAll()
+                .and()
+                .logout()
                 .permitAll()
                 .and().httpBasic().disable();
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-       // auth.inMemoryAuthentication().withUser("root").password("password").roles("USER");
+        // auth.inMemoryAuthentication().withUser("root").password("password").roles("USER");
         auth.jdbcAuthentication().dataSource(dataSource);
     }
+
+
 
 }

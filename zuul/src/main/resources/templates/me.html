@@ -25,26 +25,16 @@
                 <div class="inner">
                     <h3 class="masthead-brand">Menu</h3>
                     <nav class="nav nav-masthead">
-                        <a class="nav-link active" href="#">About</a>
+                        <a class="nav-link "  href="/" th:href="@{/}">About</a>
                         <a class="nav-link " href="/index" th:href="@{/index}">Cakes</a>
-                        <a class="nav-link" href="/me" th:href="@{/me}">Me</a>
-                        <a class="nav-link" href="#">
-                            <div th:if="${#httpServletRequest.remoteUser}">
-                                <form action="#" th:action="@{/logout}" method="post">
-                                    <span th:text="${#httpServletRequest.remoteUser}"/>
-                                    <input type="submit" value="Logout"/>
-                                </form>
-                            </div>
-                        </a>
+                        <a class="nav-link  active" href="/#">Me</a>
                     </nav>
                 </div>
             </div>
 
             <div class="inner cover">
-                <h1 class="cover-heading">Cake market.</h1>
-                <p class="lead"> You can find here beautiful, tasty cake </p>
-                <p class="lead"> To do something you need to register </p>
-
+                <span >UserName:</span>
+                <span th:text="${#httpServletRequest.remoteUser}"/>
             </div>
 
             <div class="mastfoot">

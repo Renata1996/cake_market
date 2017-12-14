@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <link rel="stylesheet" type="text/css" href="/static/dist/css/bootstrap.css" th:href="@{/dist/css/bootstrap.css}" />
+    <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="/static/cover.css" th:href="@{/cover.css}"  />
 
 </head>
@@ -15,20 +16,27 @@
 <div class="site-wrapper">
     <div class="site-wrapper-inner">
         <div class="cover-container">
-            <form class="form-signin" role="form" th:action="@{/login}" method="post">
-                <p th:if="${loginError}" class="error">Wrong user or password</p>
-                <h2 class="form-signin-heading">Please sign in</h2>
-                <input type="text" id="username" name="username" class="form-control" placeholder="User name"
+            <form class="form-registration" id="registration" role="form">
+              <!--  <p th:if="${loginError}" class="error">Wrong user or password</p>-->
+                <h2 class="form-signin-heading">Registration</h2>
+                <input type="text" id="userName" name="username" class="form-control" placeholder="User name"
                        required="" autofocus=""/>
                 <input id="password" name="password" type="password" class="form-control" placeholder="Password"
                        required=""/>
-                <button class="btn btn-lg btn-default btn-block" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-default btn-block" type="submit">Registration</button>
             </form>
             <p><a href="/index" th:href="@{/}">Back to home page</a></p>
-            <p><a href="/uaa/registration" th:href="@{/registration}">Registration</a></p>
+            <p><a href="/uaa/registration" th:href="@{/login}">Login</a></p>
         </div>
     </div>
 </div>
+
+<script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-json/2.6.0/jquery.json.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/registration.js}"></script>
 
 </body>
 </html>

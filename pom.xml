@@ -18,6 +18,7 @@
         <module>usermanager</module>
         <module>auth</module>
         <module>config</module>
+        <module>busket</module>
     </modules>
 
     <build>

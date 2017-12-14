@@ -34,5 +34,10 @@ zuul:
       sensitiveHeaders:
       serviceId: customer-service
 
+    busket:
+      path: /busket/**
+      sensitiveHeaders:
+      serviceId: busket-service
+
 
 
