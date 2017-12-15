@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -25,16 +25,25 @@
                 <div class="inner">
                     <h3 class="masthead-brand">Menu</h3>
                     <nav class="nav nav-masthead">
-                        <a class="nav-link "  href="/" th:href="@{/}">About</a>
+                        <a class="nav-link active" href="#">About</a>
                         <a class="nav-link " href="/index" th:href="@{/index}">Cakes</a>
-                        <a class="nav-link  active" href="/#">Me</a>
+                        <div th:if="${#httpServletRequest.remoteUser}">
+                            <a class="nav-link" href="/me" th:href="@{/me}">Me  </a>
+                            <a class="nav-link" href="#">
+                                <form action="#" th:action="@{/logout}" method="post">
+                                    <input type="submit" value="Logout"/>
+                                </form>
+                            </a>
+                        </div>
                     </nav>
                 </div>
             </div>
 
             <div class="inner cover">
-                <span >UserName:</span>
-                <span id="userName" th:text="${#httpServletRequest.remoteUser}"/>
+                <h1 class="cover-heading">Cake market.</h1>
+                <p class="lead"> You can find here beautiful, tasty cake </p>
+                <p class="lead"> To do something you need to register </p>
+
             </div>
 
             <div class="mastfoot">
@@ -58,7 +67,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
         crossorigin="anonymous"></script>
-<script type="text/javascript" th:src="@{/me.js}"></script>
-
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

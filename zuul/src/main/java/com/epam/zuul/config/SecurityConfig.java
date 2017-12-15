@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -19,6 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String LOGIN_PATH = "/login";
     private static final String REGISTRATION_PATH = "/registration";
     private static final String DEFAULT_PATH = "/index";
+    private static final String STATIC_PATH = "/**";
 
     @Autowired
     private DataSource dataSource;
@@ -27,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers( REGISTRATION_PATH,DEFAULT_PATH)
+                .antMatchers( REGISTRATION_PATH,DEFAULT_PATH, STATIC_PATH)
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

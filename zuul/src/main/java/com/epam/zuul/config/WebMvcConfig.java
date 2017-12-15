@@ -10,11 +10,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 
     private static final String DEFAULT_PATH = "/";
-    private static final String DEFAULT_PATH_VIEW = "main";
+    private static final String DEFAULT_PATH_VIEW = "about";
     private static final String LOGIN_PATH = "/login";
     private static final String LOGIN_PATH_VIEW = "login";
     private static final String INDEX_PATH = "/index";
-    private static final String INDEX_PATH_VIEW = "index";
+    private static final String INDEX_PATH_VIEW = "cakes";
     private static final String REGISTRATION_PATH = "/registration";
     private static final String REGISTRATION_PATH_VIEW = "registration";
     private static final String ME_PATH = "/me";
