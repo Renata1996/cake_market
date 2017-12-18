@@ -21,8 +21,11 @@
                     <nav class="nav nav-masthead">
                         <a class="nav-link " href="/" th:href="@{/}">About</a>
                         <a class="nav-link active " href="/index" th:href="@{/index}">Cakes</a>
-                        <div th:if="${#httpServletRequest.remoteUser}">
-                            <a class="nav-link" href="/me" th:href="@{/me}">Me </a>
+                        <a class="nav-link" th:if="${#httpServletRequest.remoteUser==null}" href="/login"
+                           th:href="@{/login}"> Login </a>
+                        <div th:if="${#httpServletRequest.remoteUser}!=null">
+
+                            <a class="nav-link" href="/me" th:href="@{/me}"> Me  </a>
                             <a class="nav-link" href="#">
                                 <form action="#" th:action="@{/logout}" method="post">
                                     <input type="submit" value="Logout"/>

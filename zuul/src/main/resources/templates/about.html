@@ -23,12 +23,15 @@
 
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">Menu</h3>
+                    <h3 class="masthead-brand">Menu </h3>
                     <nav class="nav nav-masthead">
-                        <a class="nav-link active" href="#">About</a>
-                        <a class="nav-link " href="/index" th:href="@{/index}">Cakes</a>
-                        <div th:if="${#httpServletRequest.remoteUser}">
-                            <a class="nav-link" href="/me" th:href="@{/me}">Me  </a>
+                        <a class="nav-link active" href="#"> About </a>
+                        <a class="nav-link" href="/index" th:href="@{/index}"> Cakes </a>
+                        <a class="nav-link" th:if="${#httpServletRequest.remoteUser==null}" href="/login"
+                           th:href="@{/login}"> Login </a>
+                        <div th:if="${#httpServletRequest.remoteUser}!=null">
+
+                            <a class="nav-link" href="/me" th:href="@{/me}"> Me </a>
                             <a class="nav-link" href="#">
                                 <form action="#" th:action="@{/logout}" method="post">
                                     <input type="submit" value="Logout"/>
@@ -58,9 +61,6 @@
 
 </div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
         integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
         crossorigin="anonymous"></script>
@@ -68,7 +68,5 @@
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
         crossorigin="anonymous"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>

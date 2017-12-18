@@ -7,10 +7,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class SpringSecConfig extends WebSecurityConfigurerAdapter {
 
+    private static final String REGISTARTION_PATH = "/uaa/registration";
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeRequests().antMatchers("/uaa/registration").permitAll();
+        httpSecurity.authorizeRequests().antMatchers(REGISTARTION_PATH).permitAll();
         httpSecurity.csrf().disable();
         httpSecurity.headers().frameOptions().disable();
     }

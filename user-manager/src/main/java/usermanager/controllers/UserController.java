@@ -15,13 +15,17 @@ import java.security.Principal;
 public class UserController {
 
     private static final String REGISTRATION = "/registration";
+    private static final String CROOSS_ORIGIN_PATH = "http://localhost:8881";
+    private static final String TYPE = "application/json";
+    private static final String SHOW_PATH = "/show/{id}";
+    private static final String USER_PATH = "/user";
 
     @Setter
     @Autowired
     private UserService userService;
 
-    @CrossOrigin(origins = "http://localhost:8881")
-    @RequestMapping(value = REGISTRATION, method = RequestMethod.POST, produces = "application/json")
+    @CrossOrigin(origins = CROOSS_ORIGIN_PATH)
+    @RequestMapping(value = REGISTRATION, method = RequestMethod.POST, produces = TYPE)
     public Boolean user(@RequestBody User user, Model model) {
         user.setEnabled(1);
         userService.saveUser(user);
@@ -29,14 +33,12 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/show/{id}", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = SHOW_PATH, method = RequestMethod.GET, produces = TYPE)
     public User showUser(@PathVariable String userName, Model model) {
-
-        User user = userService.getUserByName(userName);
-        return user;
+        return userService.getUserByName(userName);
     }
 
-    @RequestMapping("/user")
+    @RequestMapping(USER_PATH)
     public Principal user(Principal user) {
         return user;
     }

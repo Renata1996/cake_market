@@ -1,6 +1,6 @@
 package cakemanager.services;
 
-import cakemanager.entities.Cake;
+import cakemanager.domain.Cake;
 
 import java.util.List;
 

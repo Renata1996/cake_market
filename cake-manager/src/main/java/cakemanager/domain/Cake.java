@@ -1,4 +1,4 @@
-package cakemanager.entities;
+package cakemanager.domain;
 
 import lombok.Data;
 

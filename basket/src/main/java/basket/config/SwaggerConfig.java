@@ -12,12 +12,15 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+    private static final String BASKET_CNTROLLER = "basket.controllers";
+    private static final String BASKET_PATH = "/basket.*";
+
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("basket.controllers"))
-                .paths(regex("/basket.*"))
+                .apis(RequestHandlerSelectors.basePackage(BASKET_CNTROLLER))
+                .paths(regex(BASKET_PATH))
                 .build();
     }
 }

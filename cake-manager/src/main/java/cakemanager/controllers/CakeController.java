@@ -1,12 +1,10 @@
 package cakemanager.controllers;
 
 
-import cakemanager.entities.Cake;
+import cakemanager.domain.Cake;
 import cakemanager.services.CakeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,57 +19,61 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "onlinestore", description = "Operations pertaining to products in Online Store")
 public class CakeController {
 
+    private static final String CROSS_ORIGN_PATH = "http://localhost:8881";
+    private static final String LIST_PATH = "/list";
+    private static final String TYPE = "application/json";
+    private static final String DELETE_PATH = "/delete/{id}";
+    private static final String UPDATE_PATH = "/update/{id}";
+    private static final String ADD_PATH = "/add";
+    private static final String SHOW_PATH = "/show/{id}";
+    private static final String VIEW_TEXT = "View a list of available cakes";
+    private static final String SEARCH_TEXT = "Search a cake with an ID";
+    private static final String ADD_TEXT = "Add a cake";
+    private static final String UPDATE_TEXT = "Update a cake";
+    private static final String DELETE_TEXT = "Delete a cake";
 
     @Setter
     @Autowired
     private CakeService cakeService;
 
-
-    @ApiOperation(value = "View a list of available cakes", response = Iterable.class)
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successfully retrieved list"),
-            @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
-    }
-    )
-    @CrossOrigin(origins = "http://localhost:8881")
-    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json")
+    @ApiOperation(value = VIEW_TEXT, response = Iterable.class)
+    @CrossOrigin(origins = CROSS_ORIGN_PATH)
+    @RequestMapping(value = LIST_PATH, method = RequestMethod.GET, produces = TYPE)
     public Iterable<Cake> list(Model model) {
         Iterable<Cake> cakeList = cakeService.getAllCakes();
         return cakeList;
     }
 
-    @ApiOperation(value = "Search a cake with an ID", response = Cake.class)
-    @RequestMapping(value = "/show/{id}", method = RequestMethod.GET, produces = "application/json")
+    @ApiOperation(value = SEARCH_TEXT, response = Cake.class)
+    @RequestMapping(value = SHOW_PATH, method = RequestMethod.GET, produces = TYPE)
     public Cake showCake(@PathVariable Integer id, Model model) {
         Cake cake = cakeService.getCakeById(Long.valueOf(id));
         return cake;
     }
 
-    @ApiOperation(value = "Add a cake")
-    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json")
+    @ApiOperation(value = ADD_TEXT)
+    @RequestMapping(value = ADD_PATH, method = RequestMethod.POST, produces = TYPE)
     public ResponseEntity saveCake(@RequestBody Cake cake) {
         cakeService.saveOrUpdate(cake);
-        return new ResponseEntity("Cake saved successfully", HttpStatus.OK);
+        return new ResponseEntity(ADD_TEXT, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Update a cake")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT, produces = "application/json")
+    @ApiOperation(value = UPDATE_TEXT)
+    @RequestMapping(value = UPDATE_PATH, method = RequestMethod.PUT, produces = TYPE)
     public ResponseEntity updateCake(@PathVariable Integer id, @RequestBody Cake cake) {
         Cake storedCake = cakeService.getCakeById(Long.valueOf(id));
         storedCake.setDescription(cake.getDescription());
         storedCake.setImageUrl(cake.getImageUrl());
         storedCake.setPrice(cake.getPrice());
         cakeService.saveOrUpdate(cake);
-        return new ResponseEntity("Cake updated successfully", HttpStatus.OK);
+        return new ResponseEntity(UPDATE_TEXT, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Delete a cake")
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
+    @ApiOperation(value = DELETE_TEXT)
+    @RequestMapping(value = DELETE_PATH, method = RequestMethod.DELETE, produces = TYPE)
     public ResponseEntity delete(@PathVariable Integer id) {
         cakeService.delete(Long.valueOf(id));
-        return new ResponseEntity("Cake deleted successfully", HttpStatus.OK);
+        return new ResponseEntity(DELETE_TEXT, HttpStatus.OK);
 
     }
 

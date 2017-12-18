@@ -1,7 +1,7 @@
 package cakemanager.services;
 
 
-import cakemanager.entities.Cake;
+import cakemanager.domain.Cake;
 import cakemanager.repositories.CakeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
